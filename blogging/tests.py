@@ -24,6 +24,29 @@ class FrontEndTestCase(TestCase):
                 pubdate = self.now - self.timedelta*count
                 post.published_date = pubdate
             post.save()
+
+    def test_list_only_published(self):
+        resp = self.client.get('/')
+        resp_text = resp.content.decode(resp.charset)  #because resp bytestring
+        self.assertTrue("Recent Posts" in resp_text)
+        for count in range(1, 11):
+            title = "Post %d Title" % count
+            if count < 6:
+                self.assertContains(resp, title, count=1)
+            else:
+                self.assertNotContains(resp, title)
+
+    def test_details_only_published(self):
+        for count in range(1, 11):
+            title = "Post %d Title" % count
+            post = Post.objects.get(title=title)
+            resp = self.client.get('/posts/%d/' % post.pk)
+            if count < 6:
+                self.assertEqual(resp.status_code, 200)
+                self.assertContains(resp, title)
+            else:
+                self.assertEqual(resp.status_code, 404)
+
 class PostTestCase(TestCase):
     fixtures = ['blogging_test_fixture.json', ]
 
