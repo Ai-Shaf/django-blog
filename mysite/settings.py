@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
     "polling",
     "blogging",
 ]
@@ -143,6 +143,3 @@ LOGIN_REDIRECT_URL = "/"
 # ACCOUNT_EMAIL_VERIFICATION = 'none'
 #
 # LOGIN_REDIRECT_URL = "/"
-
-
-
