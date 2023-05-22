@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     # "allauth.account",
     # "allauth.socialaccount",
     # "allauth.socialaccount.providers.github",
-    # "polling",
-    # "blogging",
+    "polling",
+    "blogging",
 ]
 
 MIDDLEWARE = [
