@@ -13,7 +13,7 @@ gunicorn==20.1.0
 idna==3.4
 mypy-extensions==1.0.0
 oauthlib==3.2.2
-packaging==23.1
+packaging==21.3
 pathspec==0.11.1
 platformdirs==3.5.1
 psycopg2-binary==2.9.6
