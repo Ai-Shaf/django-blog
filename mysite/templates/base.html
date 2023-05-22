@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 
 
 <html>
@@ -15,7 +16,7 @@
 			{% if user.is_staff %}<li><a href="{% url 'admin:index' %}"> Admin</a></li>{% endif %}
 			<li><a href="{% url 'logout' %}">Logout</a></li>
 			{% else %}
-
+				<li><a href="{% provider_login_url 'github' %}">Sign Up</a></li>
 				<li><a href ="{% url 'login' %}">Login</a></li>
 
 			{% endif %}
